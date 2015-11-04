@@ -6,10 +6,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Meme Editor View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MemeEditorViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -25,13 +25,13 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="plM-Ih-vca"/>
                                     <barButtonItem systemItem="camera" id="WGp-8A-iou">
                                         <connections>
-                                            <action selector="pickAnImageFromCamera:" destination="BYZ-38-t0r" id="lab-dy-dWc"/>
+                                            <action selector="pickAnImageFromCamera:" destination="BYZ-38-t0r" id="Kac-l3-cCW"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem width="47" style="plain" systemItem="fixedSpace" id="G36-je-qFG"/>
                                     <barButtonItem title="Album" id="VlT-VT-9zz">
                                         <connections>
-                                            <action selector="pickAnImageFromAlbum:" destination="BYZ-38-t0r" id="aYO-5z-B3J"/>
+                                            <action selector="pickAnImageFromAlbum:" destination="BYZ-38-t0r" id="y8u-K4-61y"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="eUg-zL-G5C"/>
@@ -50,13 +50,13 @@
                                 <items>
                                     <barButtonItem enabled="NO" systemItem="action" id="m4e-Vq-iAc">
                                         <connections>
-                                            <action selector="share:" destination="BYZ-38-t0r" id="UpC-lO-Coc"/>
+                                            <action selector="share:" destination="BYZ-38-t0r" id="HCj-RB-Gyw"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Dua-eT-yca"/>
                                     <barButtonItem title="Cancel" id="Yq4-di-aOG">
                                         <connections>
-                                            <action selector="cancelToInitialState:" destination="BYZ-38-t0r" id="5Cj-cl-XR3"/>
+                                            <action selector="cancelToInitialState:" destination="BYZ-38-t0r" id="CBa-kG-1tj"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem width="8" style="plain" systemItem="fixedSpace" id="W49-yB-YgC"/>
@@ -69,9 +69,6 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="20" y="91" width="360" height="30"/>
-                                </variation>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="oPd-wo-zV4">
                                 <rect key="frame" x="-25" y="-30" width="97" height="30"/>
@@ -80,9 +77,6 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="20" y="504" width="360" height="30"/>
-                                </variation>
                             </textField>
                         </subviews>
                         <animations/>
@@ -114,12 +108,7 @@
                                 <exclude reference="oPd-wo-zV4"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="9VI-7F-9Pv"/>
-                                <exclude reference="YbG-Ka-KAO"/>
-                                <exclude reference="o7v-eX-nPQ"/>
-                                <exclude reference="95L-Ph-J9A"/>
-                                <exclude reference="PaM-F1-vnl"/>
-                                <exclude reference="Tql-cP-D4F"/>
+                                <exclude reference="KtI-rT-z7D"/>
                                 <exclude reference="3Uv-KR-bqH"/>
                                 <exclude reference="HVl-gL-Fu2"/>
                                 <exclude reference="qjv-Ze-Rxf"/>
@@ -129,7 +118,12 @@
                                 <exclude reference="B96-bX-U1K"/>
                                 <exclude reference="HBm-7Y-nNw"/>
                                 <exclude reference="mK6-D8-oRL"/>
-                                <exclude reference="KtI-rT-z7D"/>
+                                <exclude reference="9VI-7F-9Pv"/>
+                                <exclude reference="YbG-Ka-KAO"/>
+                                <exclude reference="o7v-eX-nPQ"/>
+                                <exclude reference="95L-Ph-J9A"/>
+                                <exclude reference="PaM-F1-vnl"/>
+                                <exclude reference="Tql-cP-D4F"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -141,12 +135,7 @@
                                 <include reference="oPd-wo-zV4"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="9VI-7F-9Pv"/>
-                                <include reference="YbG-Ka-KAO"/>
-                                <include reference="o7v-eX-nPQ"/>
-                                <include reference="95L-Ph-J9A"/>
-                                <include reference="PaM-F1-vnl"/>
-                                <include reference="Tql-cP-D4F"/>
+                                <include reference="KtI-rT-z7D"/>
                                 <include reference="3Uv-KR-bqH"/>
                                 <include reference="HVl-gL-Fu2"/>
                                 <include reference="qjv-Ze-Rxf"/>
@@ -156,16 +145,21 @@
                                 <include reference="B96-bX-U1K"/>
                                 <include reference="HBm-7Y-nNw"/>
                                 <include reference="mK6-D8-oRL"/>
-                                <include reference="KtI-rT-z7D"/>
+                                <include reference="9VI-7F-9Pv"/>
+                                <include reference="YbG-Ka-KAO"/>
+                                <include reference="o7v-eX-nPQ"/>
+                                <include reference="95L-Ph-J9A"/>
+                                <include reference="PaM-F1-vnl"/>
+                                <include reference="Tql-cP-D4F"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="bottomText" destination="oPd-wo-zV4" id="Rc4-CU-X1E"/>
-                        <outlet property="cameraButton" destination="WGp-8A-iou" id="yGy-Rx-Pcz"/>
-                        <outlet property="imageViewer" destination="iaH-sA-R9Q" id="uwh-xs-lT4"/>
-                        <outlet property="shareButton" destination="m4e-Vq-iAc" id="aRA-li-vwn"/>
-                        <outlet property="topText" destination="cy9-A9-Ahp" id="fe4-JG-y4Y"/>
+                        <outlet property="bottomText" destination="oPd-wo-zV4" id="ys5-CM-gfD"/>
+                        <outlet property="cameraButton" destination="WGp-8A-iou" id="Ps0-Oq-x9U"/>
+                        <outlet property="imageViewer" destination="iaH-sA-R9Q" id="dj0-vD-IsB"/>
+                        <outlet property="shareButton" destination="m4e-Vq-iAc" id="2lX-VO-nGq"/>
+                        <outlet property="topText" destination="cy9-A9-Ahp" id="1z4-oQ-a4l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
