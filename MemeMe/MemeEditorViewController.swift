@@ -103,6 +103,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         let items = [ self.generateMemedImage() ]
         let activityViewController = UIActivityViewController(activityItems: items, applicationActivities: nil)
         self.presentViewController(activityViewController, animated: true, completion: nil)
+        // TODO: don't save when the user cancels, still need to figure out how to use the completionWithItemsHandler
+        //activityViewController.completionWithItemsHandler(UIActivityTypeMessage)
         save()
         //self.dismissViewControllerAnimated(true, completion: nil)
     }
