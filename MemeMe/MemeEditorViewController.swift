@@ -43,20 +43,20 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        self.presentViewController(imagePicker, animated: true, completion: nil)
+        presentViewController(imagePicker, animated: true, completion: nil)
     }
     
     @IBAction func pickAnImageFromCamera (sender: AnyObject) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
-        self.presentViewController(imagePicker, animated: true, completion: nil)
+        presentViewController(imagePicker, animated: true, completion: nil)
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             imageViewer.image = image
-            self.dismissViewControllerAnimated(true, completion: nil)
+            dismissViewControllerAnimated(true, completion: nil)
             shareButton.enabled = true
         }
     }
@@ -64,7 +64,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     // code source: http://stackoverflow.com/questions/24180954/how-to-hide-keyboard-in-swift-on-pressing-return-key
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        return true;
+        return true
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -83,13 +83,13 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     func keyboardWillShow(notification: NSNotification) {
         if bottomText.editing{
-            self.view.frame.origin.y -= getKeyboardHeight(notification)
+            view.frame.origin.y -= getKeyboardHeight(notification)
         }
     }
     
     func keyboardWillHide(notification: NSNotification) {
         if bottomText.editing{
-            self.view.frame.origin.y += getKeyboardHeight(notification)
+            view.frame.origin.y += getKeyboardHeight(notification)
         }
     }
     
@@ -100,20 +100,13 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     @IBAction func share(sender: UIBarButtonItem) {
-        let items = [ self.generateMemedImage() ]
+        let items = [ generateMemedImage() ]
         let activityViewController = UIActivityViewController(activityItems: items, applicationActivities: nil)
-        self.presentViewController(activityViewController, animated: true, completion: nil)
+        presentViewController(activityViewController, animated: true, completion: nil)
         // TODO: don't save when the user cancels, still need to figure out how to use the completionWithItemsHandler
         //activityViewController.completionWithItemsHandler(UIActivityTypeMessage)
         save()
-        //self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    struct Meme {        
-        var top: String
-        var bottom: String
-        var image: UIImage
-        var memedImage: UIImage
+        //dismissViewControllerAnimated(true, completion: nil)
     }
     
     func save()  {
@@ -122,8 +115,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
 
     func generateMemedImage() -> UIImage {
         // TODO: Hide toolbar and navbar
-        UIGraphicsBeginImageContext(self.view.frame.size)
-        self.view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.drawViewHierarchyInRect(view.frame, afterScreenUpdates: true)
         let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         // TODO:  Show toolbar and navbar      
