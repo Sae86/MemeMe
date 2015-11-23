@@ -106,11 +106,13 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         // TODO: don't save when the user cancels, still need to figure out how to use the completionWithItemsHandler
         //activityViewController.completionWithItemsHandler(UIActivityTypeMessage)
         save()
-        //dismissViewControllerAnimated(true, completion: nil)
     }
     
     func save()  {
-        var meme = Meme(top: topText.text!, bottom: bottomText.text!, image: imageViewer.image!, memedImage: generateMemedImage())
+        let meme = Meme(top: topText.text!, bottom: bottomText.text!, image: imageViewer.image!, memedImage: generateMemedImage())
+        let object = UIApplication.sharedApplication().delegate
+        let appDelegate = object as! AppDelegate
+        appDelegate.memes.append(meme)
     }
 
     func generateMemedImage() -> UIImage {
@@ -128,6 +130,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         shareButton.enabled = false
         topText.text = "TOP"
         bottomText.text = "BOTTOM"
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     override func viewWillDisappear(animated: Bool) {
