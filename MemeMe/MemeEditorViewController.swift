@@ -103,9 +103,11 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         let items = [ generateMemedImage() ]
         let activityViewController = UIActivityViewController(activityItems: items, applicationActivities: nil)
         presentViewController(activityViewController, animated: true, completion: nil)
-        // TODO: don't save when the user cancels, still need to figure out how to use the completionWithItemsHandler
-        //activityViewController.completionWithItemsHandler(UIActivityTypeMessage)
-        save()
+        activityViewController.completionWithItemsHandler = { activity, success, items, error in
+            if (success){
+                self.save()
+            }
+        }
     }
     
     func save()  {
@@ -116,12 +118,14 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     }
 
     func generateMemedImage() -> UIImage {
-        // TODO: Hide toolbar and navbar
+        tabBarController?.tabBar.hidden = true
+        navigationController?.navigationBarHidden = true
         UIGraphicsBeginImageContext(view.frame.size)
         view.drawViewHierarchyInRect(view.frame, afterScreenUpdates: true)
         let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        // TODO:  Show toolbar and navbar      
+        tabBarController?.tabBar.hidden = false
+        navigationController?.navigationBarHidden = false
         return memedImage
     }
 

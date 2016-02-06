@@ -24,7 +24,7 @@ class MemeTableViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         tabBarController?.tabBar.hidden = false
-        tableView.reloadData()
+        tableView!.reloadData()
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -44,11 +44,10 @@ class MemeTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
         let detailController = storyboard!.instantiateViewControllerWithIdentifier("MemeDetailViewController") as! MemeDetailViewController
         let meme = memes[indexPath.row]
         detailController.meme = meme
-        //detailController.memeView.image = meme.memedImage
+        detailController.memeView?.image = meme.memedImage
         navigationController!.pushViewController(detailController, animated: true)
         
     }

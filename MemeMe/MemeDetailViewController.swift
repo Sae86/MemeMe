@@ -16,21 +16,18 @@ class MemeDetailViewController : UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        tabBarController?.tabBar.hidden = true
-        let editButton : UIBarButtonItem = UIBarButtonItem(title: "Edit", style: UIBarButtonItemStyle.Plain, target: self, action: "")
-        navigationItem.rightBarButtonItem = editButton
-        memeView!.image = meme.memedImage
+        //tabBarController?.tabBar.hidden = true
+        //let editButton : UIBarButtonItem = UIBarButtonItem(title: "Edit", style: UIBarButtonItemStyle.Plain, target: self, action: "")
+        //navigationItem.rightBarButtonItem = editButton
+        memeView = UIImageView(image: meme.memedImage)
     }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier == "editMeme"){
-            let memeEditor:MemeEditorViewController = segue.destinationViewController as! MemeEditorViewController
-            memeEditor.topText.text = meme.top
-            memeEditor.bottomText.text = meme.bottom
-            memeEditor.imageViewer.image = meme.image
-        }
+    /*
+    func goToDetails(sender: AnyObject?) {
+        let detailController = storyboard!.instantiateViewControllerWithIdentifier("MemeDetailViewController") as! MemeDetailViewController
+        detailController.meme = meme
+        navigationController!.pushViewController(detailController, animated: true)
     }
-    
+    */
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         tabBarController?.tabBar.hidden = false
