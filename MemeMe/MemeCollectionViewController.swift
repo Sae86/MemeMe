@@ -45,7 +45,7 @@ class MemeCollectionViewController: UICollectionViewController {
         let detailController = storyboard!.instantiateViewControllerWithIdentifier("MemeDetailViewController") as! MemeDetailViewController
         let meme = memes[indexPath.row]
         detailController.meme = meme
-        detailController.memeView.image = meme.memedImage
+        detailController.memeView? = UIImageView(image: meme.memedImage)
         navigationController!.pushViewController(detailController, animated: true)
         
     }

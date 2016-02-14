@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ijm-5p-Q3Q">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ijm-5p-Q3Q">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -147,7 +147,7 @@
         <!--Meme Editor View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MemeEditorViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MemeEditorViewController" id="BYZ-38-t0r" customClass="MemeEditorViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -246,10 +246,10 @@
             </objects>
             <point key="canvasLocation" x="2350" y="322"/>
         </scene>
-        <!--MemeDetailViewController-->
+        <!--Meme Detail-->
         <scene sceneID="hBJ-Ru-nUy">
             <objects>
-                <viewController storyboardIdentifier="MemeDetailViewController" title="MemeDetailViewController" id="rX3-8p-Dun" customClass="MemeDetailViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MemeDetailViewController" title="Meme Detail" id="rX3-8p-Dun" customClass="MemeDetailViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VHQ-gy-M98"/>
                         <viewControllerLayoutGuide type="bottom" id="6is-fA-NmZ"/>
@@ -258,37 +258,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pIa-5K-CGa">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
-                                <items>
-                                    <navigationItem title="Meme detail" id="m02-VB-gO7">
-                                        <barButtonItem key="rightBarButtonItem" id="O0x-y9-Lff">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bWu-L5-s0k">
-                                                <rect key="frame" x="534" y="7" width="46" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Edit"/>
-                                                <connections>
-                                                    <segue destination="BYZ-38-t0r" kind="popoverPresentation" popoverAnchorView="bWu-L5-s0k" id="QCx-vE-sFd">
-                                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                                    </segue>
-                                                </connections>
-                                            </button>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZZH-gq-Av4">
-                                <rect key="frame" x="0.0" y="72" width="600" height="508"/>
+                                <rect key="frame" x="0.0" y="28" width="600" height="552"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="pIa-5K-CGa" firstAttribute="leading" secondItem="C99-GW-4f9" secondAttribute="leadingMargin" constant="-20" id="25O-43-AYa"/>
-                            <constraint firstItem="pIa-5K-CGa" firstAttribute="top" secondItem="VHQ-gy-M98" secondAttribute="bottom" constant="8" id="6aQ-Tr-991"/>
-                            <constraint firstItem="ZZH-gq-Av4" firstAttribute="top" secondItem="pIa-5K-CGa" secondAttribute="bottom" id="GHu-s6-msD"/>
                             <constraint firstItem="6is-fA-NmZ" firstAttribute="top" secondItem="ZZH-gq-Av4" secondAttribute="bottom" constant="20" id="IOZ-b3-IBy"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ZZH-gq-Av4" secondAttribute="trailing" constant="-20" id="Vwz-Hk-4aT"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="pIa-5K-CGa" secondAttribute="trailing" constant="-20" id="cMa-Xv-h7A"/>
+                            <constraint firstItem="ZZH-gq-Av4" firstAttribute="top" secondItem="VHQ-gy-M98" secondAttribute="bottom" constant="8" id="ZeY-xy-0ba"/>
                             <constraint firstItem="ZZH-gq-Av4" firstAttribute="leading" secondItem="C99-GW-4f9" secondAttribute="leadingMargin" constant="-20" id="ggP-uc-CsH"/>
                         </constraints>
                     </view>
@@ -341,6 +319,6 @@
         <image name="List" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="QCx-vE-sFd"/>
+        <segue reference="mSZ-b8-O8W"/>
     </inferredMetricsTieBreakers>
 </document>

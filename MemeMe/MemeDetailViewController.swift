@@ -16,18 +16,23 @@ class MemeDetailViewController : UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        //tabBarController?.tabBar.hidden = true
-        //let editButton : UIBarButtonItem = UIBarButtonItem(title: "Edit", style: UIBarButtonItemStyle.Plain, target: self, action: "")
-        //navigationItem.rightBarButtonItem = editButton
-        memeView = UIImageView(image: meme.memedImage)
+        tabBarController?.tabBar.hidden = true
+        let editButton : UIBarButtonItem = UIBarButtonItem(title: "Edit", style: UIBarButtonItemStyle.Plain, target: self, action: "goToDetails:")
+        navigationItem.rightBarButtonItem = editButton
+        memeView.image = meme.memedImage
     }
-    /*
-    func goToDetails(sender: AnyObject?) {
-        let detailController = storyboard!.instantiateViewControllerWithIdentifier("MemeDetailViewController") as! MemeDetailViewController
-        detailController.meme = meme
-        navigationController!.pushViewController(detailController, animated: true)
+
+    func goToDetails(sender: UIButton!) {
+        let editorController = storyboard!.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! MemeEditorViewController
+        editorController.topText?.text = meme.top
+        editorController.bottomText?.text = meme.bottom
+        editorController.imageViewer?.image = meme.image
+        editorController.modalPresentationStyle = UIModalPresentationStyle.Popover
+        presentViewController(editorController, animated: true, completion: nil)
+        let popoverPresentationController = editorController.popoverPresentationController
+        popoverPresentationController?.sourceView = sender
     }
-    */
+
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         tabBarController?.tabBar.hidden = false
