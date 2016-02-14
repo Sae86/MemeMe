@@ -21,7 +21,7 @@ class MemeDetailViewController : UIViewController {
         navigationItem.rightBarButtonItem = editButton
         memeView.image = meme.memedImage
     }
-
+    // http://www.thomashanning.com/uipopoverpresentationcontroller/
     func goToDetails(sender: UIButton!) {
         let editorController = storyboard!.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! MemeEditorViewController
         editorController.topText?.text = meme.top
