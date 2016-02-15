@@ -137,6 +137,12 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         dismissViewControllerAnimated(true, completion: nil)
     }
     
+    func setMemeDetails(imageForMeme : UIImage, topTextForMeme: String, bottomTextForMeme: String) {
+        //imageViewer.image = imageForMeme
+        configureTextFields(topText, startingText: topTextForMeme)
+        configureTextFields(bottomText, startingText: bottomTextForMeme)
+    }
+    
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)       
         unsubscribeFromKeyboardNotifications()

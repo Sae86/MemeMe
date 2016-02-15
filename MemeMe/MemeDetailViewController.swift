@@ -24,13 +24,14 @@ class MemeDetailViewController : UIViewController {
     // http://www.thomashanning.com/uipopoverpresentationcontroller/
     func goToDetails(sender: UIButton!) {
         let editorController = storyboard!.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! MemeEditorViewController
-        editorController.topText?.text = meme.top
-        editorController.bottomText?.text = meme.bottom
-        editorController.imageViewer?.image = meme.image
         editorController.modalPresentationStyle = UIModalPresentationStyle.Popover
+        
+        if let popoverPresentationController = editorController.popoverPresentationController{
+            popoverPresentationController.sourceView = sender
+            editorController.setMemeDetails(meme.image, topTextForMeme: meme.top, bottomTextForMeme: meme.bottom)
+        }
         presentViewController(editorController, animated: true, completion: nil)
-        let popoverPresentationController = editorController.popoverPresentationController
-        popoverPresentationController?.sourceView = sender
+
     }
 
     override func viewWillDisappear(animated: Bool) {
