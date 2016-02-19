@@ -15,7 +15,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var bottomText: UITextField!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var shareButton: UIBarButtonItem!
-    
+    var meme: Meme!
     let memeTextAttributes = [
         NSForegroundColorAttributeName : UIColor.whiteColor(),
         NSStrokeColorAttributeName : UIColor.blackColor(),
@@ -40,16 +40,17 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     @IBAction func pickAnImageFromAlbum(sender: AnyObject) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        presentViewController(imagePicker, animated: true, completion: nil)
+        pickAnImage(UIImagePickerControllerSourceType.PhotoLibrary)
     }
     
     @IBAction func pickAnImageFromCamera (sender: AnyObject) {
+        pickAnImage(UIImagePickerControllerSourceType.Camera)
+    }
+    
+    func pickAnImage (source: UIImagePickerControllerSourceType) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
-        imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
+        imagePicker.sourceType = source
         presentViewController(imagePicker, animated: true, completion: nil)
     }
     
@@ -69,6 +70,11 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        if (meme != nil){
+            imageViewer.image = meme.image
+            topText.text = meme.top
+            bottomText.text = meme.bottom
+        }
         subscribeToKeyboardNotifications()
     }
     
@@ -135,12 +141,6 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         topText.text = "TOP"
         bottomText.text = "BOTTOM"
         dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    func setMemeDetails(imageForMeme : UIImage, topTextForMeme: String, bottomTextForMeme: String) {
-        //imageViewer.image = imageForMeme
-        configureTextFields(topText, startingText: topTextForMeme)
-        configureTextFields(bottomText, startingText: bottomTextForMeme)
     }
     
     override func viewWillDisappear(animated: Bool) {
